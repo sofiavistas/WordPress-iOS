@@ -29,6 +29,31 @@ extension AbstractPost {
         }
     }
 
+    var statusBeforeUpload: Status? {
+        get {
+            return rawValue(forKey: "statusBeforeUpload")
+        }
+        set {
+            setRawValue(newValue, forKey: "statusBeforeUpload")
+        }
+    }
+
+    @objc(statusBeforeUpload)
+    var statusBeforeUploadString: String? {
+        get {
+            return statusBeforeUpload?.rawValue
+        }
+        set {
+            statusBeforeUpload = newValue.flatMap { Status(rawValue: $0) }
+        }
+    }
+
+    func setStatusBeforeUploadToCurrentStatusIfNil() {
+        if let status = status, statusBeforeUpload == nil {
+            statusBeforeUpload = status
+        }
+    }
+
     static func title(for status: Status) -> String {
         return title(forStatus: status.rawValue)
     }

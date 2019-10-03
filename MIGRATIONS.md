@@ -8,6 +8,8 @@ data model as well as any custom migrations.
 - `AbstractPost`: Addded a  `confirmedChangesHash`  and  `confirmedChangesTimestamp`  properties. 
 @leandroalonso 2019-09-27
 -`AbstractPost`: Added `autoUploadAttemptsCount` property.
+@shiki 2019-10-03
+-`AbstractPost`: Added `statusBeforeUpload` property (`nullable`, `String`). Does not need custom migration.
 
 ## WordPress 90
 
